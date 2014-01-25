@@ -6,6 +6,7 @@ class CreateCharges < ActiveRecord::Migration
       t.string :currency
       t.boolean :refunded
       t.integer :customer_id
+      t.timestamps
     end
   end
 end
