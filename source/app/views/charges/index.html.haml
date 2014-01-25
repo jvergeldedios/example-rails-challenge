@@ -1,0 +1,16 @@
+.charges
+  %h1 Failed Charges
+  %ul.failed
+    - @failed_charges.each do |failed_charge|
+      = render partial: 'charges/charge', locals: { kind: 'failed', charge: failed_charge }
+
+  %h1 Disputed Charges
+  %ul.disputed
+    - @disputed_charges.each do |disputed_charge|
+      = render partial: 'charges/charge', locals: { kind: 'disputed', charge: disputed_charge }
+
+  
+  %h1 Successful Charges
+  %ul.successful
+    - @successful_charges.each do |successful_charge|
+      = render partial: 'charges/charge', locals: { kind: nil, charge: successful_charge }

@@ -12,9 +12,13 @@ class Charge < ActiveRecord::Base
 
   belongs_to :customer
 
-  scope :optimized, -> { includes(:user) }
+  scope :optimized, -> { includes(:customer) }
   scope :successful, -> { where(failed_on: nil, disputed_on: nil) }
   scope :failed, -> { where('failed_on IS NOT NULL') }
   scope :disputed, -> { where('disputed_on IS NOT NULL') }
+
+  def amount_in_dollars
+    self.amount / 100
+  end
 
 end

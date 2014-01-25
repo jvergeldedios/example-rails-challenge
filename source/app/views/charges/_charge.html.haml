@@ -1,0 +1,5 @@
+%li.charge
+  Customer: #{charge.customer.full_name}
+  Amount: #{number_to_currency charge.amount_in_dollars}
+  - if kind.present?
+    #{kind.capitalize} on: #{charge.send("#{kind}_on").to_formatted_s(:long_ordinal)}
